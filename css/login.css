@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  background: rgb(34, 187, 218);
+  font-family: "Montserrat", sans-serif;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+
+.from img {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+.from {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 340px;
+  padding: 60px;
+  border-radius: 4px;
+  background: rgba(18, 194, 238, 0.864);
+  transform: translate(-50%, -50%);
+}
+
+.from h3 {
+  color: black;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.from .from {
+    position: relative;
+    border-top: 50%;
+    margin: 25px 0 65px;
+}
+
+.from .log-in {
+    position: relative;
+    height: 65px;
+}
+
+.log-in input {
+    height: 70%;
+    width:  100%;
+    background: rgb(229, 226, 226);
+    outline: none;
+    border: rgb(255, 255, 255);
+    color: #010101;
+    font-size: 1rem;
+    border-radius: 4px;
+    padding: 0 10px;
+}
+
+.log-in input:is(:focus, :valid) {
+    padding: 10px 10px 0;
+    background: #444;
+}
+
+.log-in label{
+    position: absolute;
+    left: 10px;
+    top: 10%;
+    color: black;
+    pointer-events: none;
+    font-size: 1rem;
+    transform: translateY(10%);
+    transition: all 0.3s ease;
+}
+
+.log-in input:is(:focus, :valid) ~ label {
+    font-size: 0.68rem;
+    transform: translateY(-55%);
+}
+
+form button {
+    width: 106%;
+    padding: 10px 0;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    color: rgb(142, 13, 13);
+    cursor: pointer;
+    font-weight: 400;
+    border-radius: 5px;
+    background: rgb(12, 156, 164);
+    margin: 25px 0 10px;
+    transition: 0.1s ease;
+}
+
+form button:hover {
+    background: rgb(12, 91, 164);
+    color: white;
+}
+
+.from :where(label, p, a) {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: wheat;
+}
+
+.from p {
+  text-align: center;
+  color: black;
+  font-size: 0.8rem;
+}   
+
+.from p a {
+  color: rgb(218, 208, 208);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.from a{
+  text-decoration: none;
+}
+
+.from a:hover {
+  text-decoration: underline;
+  color: red;
+}
