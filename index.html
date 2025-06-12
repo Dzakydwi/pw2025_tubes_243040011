@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HealthDoc - Platform Kesehatan Terpercaya</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      /* Navbar Styling */
+      .navbar {
+        background: linear-gradient(135deg, #66ea92 0%, #4fd28c 100%);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: white !important;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-link {
+        color: white !important;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        margin: 0 0.5rem;
+      }
+
+      .nav-link:hover {
+        color: #ffd700 !important;
+        transform: translateY(-2px);
+      }
+
+      .logir {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .logir .nav-link {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        backdrop-filter: blur(10px);
+      }
+
+      .logir .nav-link:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      /* Home Section */
+      .home {
+        background: url(../pw2025_tubes_243040011/includes/img/bg\ home.png);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .home::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url();
+        background-size: cover;
+        z-index: 1;
+      }
+
+      .container-home {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .kata {
+        flex: 1;
+        padding-right: 2rem;
+      }
+
+      .kata h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .kata p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        animation: fadeInUp 1s ease-out 0.3s both;
+      }
+
+      .gambar {
+        flex: 1;
+        height: 400px;
+        background: url("../pw2025_tubes_243040011/includes/img/Healthdoc__1_-removebg-preview.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      /* About Section */
+      #about-us {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      }
+
+      .container-about {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+      }
+
+      .abot-kata {
+        flex: 1;
+      }
+
+      .abot-kata h1 {
+        font-size: 3rem;
+        color: #667eea;
+        margin-bottom: 2rem;
+        font-weight: 700;
+      }
+
+      .abot-kata p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #666;
+      }
+
+      .bg-about {
+        flex: 1;
+        height: 300px;
+        background: url(../pw2025_tubes_243040011/includes/img/ghibli\ emergency.png);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Cari Obat Section */
+      #cari-obat {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #66ea92 0%, #0f8f49 100%);
+        color: white;
+      }
+
+      .kontener {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .search_obat {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .search_obat h1 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      .search_obat p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .search-container {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        margin-bottom: 3rem;
+      }
+
+      .search-input {
+        position: relative;
+        margin-bottom: 2rem;
+      }
+
+      .search-input input {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 50px;
+        background: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .search-input input:focus {
+        outline: none;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .search-btn {
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .search-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .filter-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        padding: 0.5rem 1.5rem;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+
+      .medicine-results {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .medicine-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .medicine-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .medicine-card h3 {
+        color: #ffd700;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .medicine-card .category {
+        background: rgba(255, 215, 0, 0.2);
+        color: #ffd700;
+        padding: 0.25rem 0.75rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        display: inline-block;
+        margin-bottom: 1rem;
+      }
+
+      .medicine-card .price {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #28a745;
+        margin-top: 1rem;
+      }
+
+      .no-results {
+        text-align: center;
+        padding: 2rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.1rem;
+      }
+
+      /* Contact Section */
+      #contact {
+        padding: 80px 0;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      }
+
+      .logososmed {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .logososmed > div {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #56cdcd 0%, #128394 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .logososmed > div:hover {
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Footer */
+      footer {
+        background: #2c3e50;
+        color: white;
+        padding: 2rem 0;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .container-home {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .kata {
+          padding-right: 0;
+          margin-bottom: 2rem;
+        }
+
+        .kata h1 {
+          font-size: 2.5rem;
+        }
+
+        .container-about {
+          flex-direction: column;
+        }
+
+        .medicine-results {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container-fluid">
+        <a href="#home" class="d-flex align-items-center text-decoration-none">
+          <img
+            src="../pw2025_tubes_243040011/includes/img/Healthdoc__1_-removebg-preview.png"
+            alt="HealthDoc Logo"
+            style="width: 50px; height: 50px; margin-right: 0.75rem" />
+
+          <span class="navbar-brand mb-0">HealthDoc</span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" href="#home">Home</a>
+            <a class="nav-link" href="#about-us">About Us</a>
+            <a class="nav-link" href="#cari-obat">Cari Obat</a>
+            <a class="nav-link" href="#contact">Contact Us</a>
+          </div>
+        </div>
+
+        <div class="logir">
+          <a
+            class="nav-link"
+            href="../pw2025_tubes_243040011/adminpannel/login .php"
+            >Login</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="home">
+      <div class="container-home">
+        <div class="kata">
+          <h1>Selamat Datang di HealthDoc</h1>
+          <p>
+            Platform kesehatan yang menyediakan informasi obat, jadwal
+            perjanjian dokter, dan layanan kesehatan lainnya untuk mendukung
+            kesejahteraan Anda dan keluarga.
+          </p>
+        </div>
+        <div class="gambar"></div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about-us">
+      <div class="container-about">
+        <div class="abot-kata">
+          <h1>Tentang Kami</h1>
+          <p>
+            HealthDoc adalah platform kesehatan digital terpercaya yang
+            berkomitmen untuk memberikan akses mudah terhadap informasi
+            kesehatan dan obat-obatan. Kami menyediakan database lengkap
+            obat-obatan dengan informasi yang akurat dan terpercaya, membantu
+            Anda membuat keputusan kesehatan yang tepat. Tim ahli kami bekerja
+            keras untuk memastikan semua informasi yang disajikan selalu
+            mutakhir dan dapat diandalkan.
+          </p>
+        </div>
+        <div class="bg-about"></div>
+      </div>
+    </section>
+
+    <!-- Cari Obat Section -->
+    <section id="cari-obat">
+      <div class="kontener">
+        <div class="search_obat">
+          <h1>Cari Obat</h1>
+          <p>
+            Akses informasi obat terpercaya untuk mendukung kesehatan Anda dan
+            keluarga. Cari obat secara online, aman, cepat, dan praktis.
+          </p>
+        </div>
+
+        <div class="search-container">
+          <div class="search-input">
+            <input
+              type="text"
+              id="medicineSearch"
+              placeholder="Ketik nama obat yang ingin dicari..." />
+          </div>
+
+          <div class="text-center">
+            <button class="search-btn" onclick="searchMedicine()">
+              <i class="bi bi-search me-2"></i>Cari Obat
+            </button>
+          </div>
+
+          <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterMedicine('all')">
+              Semua
+            </button>
+            <button class="filter-btn" onclick="filterMedicine('painkiller')">
+              Pereda Nyeri
+            </button>
+            <button class="filter-btn" onclick="filterMedicine('antibiotic')">
+              Antibiotik
+            </button>
+            <button class="filter-btn" onclick="filterMedicine('vitamin')">
+              Vitamin
+            </button>
+            <button class="filter-btn" onclick="filterMedicine('cold')">
+              Flu & Batuk
+            </button>
+          </div>
+        </div>
+
+        <div class="medicine-results" id="medicineResults"></div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="logososmed">
+        <div class="youtube" onclick="openLink('https://youtube.com')">
+          <i class="bi bi-youtube"></i>
+        </div>
+        <div
+          class="instagram"
+          onclick="openLink('https://www.instagram.com/healthdoc3?igsh=dXJvOWlkenhvcjBj')">
+          <i class="bi bi-instagram"></i>
+        </div>
+        <div class="twitter" onclick="openLink('https://twitter.com')">
+          <i class="bi bi-twitter"></i>
+        </div>
+        <div class="tiktok" onclick="openLink('https://tiktok.com')">
+          <i class="bi bi-tiktok"></i>
+        </div>
+        <div class="facebook" onclick="openLink('https://facebook.com')">
+          <i class="bi bi-facebook"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+      <div class="p-4">
+        © 2024 HealthDoc. All rights reserved. | Platform Kesehatan Terpercaya
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Data obat
+      const medicines = [
+        {
+          name: "Paracetamol",
+          category: "painkiller",
+          description:
+            "Obat penurun demam dan pereda nyeri ringan hingga sedang",
+          price: "Rp 5.000 - 15.000",
+          usage: "Dewasa: 500-1000mg setiap 6-8 jam",
+        },
+        {
+          name: "Ibuprofen",
+          category: "painkiller",
+          description: "Anti-inflamasi non-steroid untuk nyeri dan peradangan",
+          price: "Rp 8.000 - 25.000",
+          usage: "Dewasa: 400-600mg setiap 6-8 jam",
+        },
+        {
+          name: "Amoxicillin",
+          category: "antibiotic",
+          description: "Antibiotik untuk infeksi bakteri",
+          price: "Rp 15.000 - 35.000",
+          usage: "Sesuai resep dokter, biasanya 3x sehari",
+        },
+        {
+          name: "Vitamin C",
+          category: "vitamin",
+          description: "Suplemen vitamin C untuk meningkatkan daya tahan tubuh",
+          price: "Rp 10.000 - 30.000",
+          usage: "1 tablet per hari",
+        },
+        {
+          name: "Vitamin D3",
+          category: "vitamin",
+          description: "Suplemen vitamin D untuk kesehatan tulang",
+          price: "Rp 25.000 - 50.000",
+          usage: "1 kapsul per hari",
+        },
+        {
+          name: "Komix",
+          category: "cold",
+          description: "Obat herbal untuk batuk dan flu",
+          price: "Rp 3.000 - 8.000",
+          usage: "3 kali sehari, larutkan dalam air hangat",
+        },
+        {
+          name: "Bodrex",
+          category: "painkiller",
+          description: "Obat sakit kepala dan demam",
+          price: "Rp 2.000 - 5.000",
+          usage: "1-2 tablet setiap 4-6 jam",
+        },
+        {
+          name: "OBH Combi",
+          category: "cold",
+          description: "Sirup obat batuk dan flu",
+          price: "Rp 12.000 - 20.000",
+          usage: "3 kali sehari, 1 sendok teh",
+        },
+        {
+          name: "Blackmores Vitamin E",
+          category: "vitamin",
+          description: "Suplemen vitamin E untuk kesehatan kulit",
+          price: "Rp 150.000 - 200.000",
+          usage: "1 kapsul per hari setelah makan",
+        },
+        {
+          name: "Ciprofloxacin",
+          category: "antibiotic",
+          description:
+            "Antibiotik untuk infeksi bakteri gram positif dan negatif",
+          price: "Rp 20.000 - 45.000",
+          usage: "Sesuai resep dokter",
+        },
+      ];
+
+      let currentFilter = "all";
+      let searchResults = medicines;
+
+      // Tampilkan semua obat saat halaman dimuat
+      document.addEventListener("DOMContentLoaded", function () {
+        displayMedicines(medicines);
+      });
+
+      // Fungsi pencarian obat
+      function searchMedicine() {
+        const searchTerm = document
+          .getElementById("medicineSearch")
+          .value.toLowerCase();
+
+        if (searchTerm === "") {
+          searchResults = medicines;
+        } else {
+          searchResults = medicines.filter(
+            (medicine) =>
+              medicine.name.toLowerCase().includes(searchTerm) ||
+              medicine.description.toLowerCase().includes(searchTerm)
+          );
+        }
+
+        // Terapkan filter kategori jika ada
+        if (currentFilter !== "all") {
+          searchResults = searchResults.filter(
+            (medicine) => medicine.category === currentFilter
+          );
+        }
+
+        displayMedicines(searchResults);
+      }
+
+      // Fungsi filter berdasarkan kategori
+      function filterMedicine(category) {
+        // Update tombol aktif
+        document.querySelectorAll(".filter-btn").forEach((btn) => {
+          btn.classList.remove("active");
+        });
+        event.target.classList.add("active");
+
+        currentFilter = category;
+
+        // Filter obat
+        if (category === "all") {
+          searchResults = medicines;
+        } else {
+          searchResults = medicines.filter(
+            (medicine) => medicine.category === category
+          );
+        }
+
+        // Terapkan pencarian jika ada
+        const searchTerm = document
+          .getElementById("medicineSearch")
+          .value.toLowerCase();
+        if (searchTerm !== "") {
+          searchResults = searchResults.filter(
+            (medicine) =>
+              medicine.name.toLowerCase().includes(searchTerm) ||
+              medicine.description.toLowerCase().includes(searchTerm)
+          );
+        }
+
+        displayMedicines(searchResults);
+      }
+
+      // Fungsi tampilkan hasil obat
+      function displayMedicines(medicineList) {
+        const resultsContainer = document.getElementById("medicineResults");
+
+        if (medicineList.length === 0) {
+          resultsContainer.innerHTML =
+            '<div class="no-results">Tidak ada obat yang ditemukan</div>';
+          return;
+        }
+
+        resultsContainer.innerHTML = medicineList
+          .map(
+            (medicine) => `
+          <div class="medicine-card">
+            <h3>${medicine.name}</h3>
+            <div class="category">${getCategoryName(medicine.category)}</div>
+            <p>${medicine.description}</p>
+            <div class="price">${medicine.price}</div>
+            <small style="opacity: 0.8;">Cara pakai: ${medicine.usage}</small>
+          </div>
+        `
+          )
+          .join("");
+      }
+
+      // Fungsi untuk mendapatkan nama kategori
+      function getCategoryName(category) {
+        const categories = {
+          painkiller: "Pereda Nyeri",
+          antibiotic: "Antibiotik",
+          vitamin: "Vitamin",
+          cold: "Flu & Batuk",
+        };
+        return categories[category] || category;
+      }
+
+      // Fungsi untuk membuka link sosial media
+      function openLink(url) {
+        window.open(url, "_blank");
+      }
+
+      // Pencarian real-time
+      document
+        .getElementById("medicineSearch")
+        .addEventListener("input", function () {
+          searchMedicine();
+        });
+
+      // Pencarian dengan Enter
+      document
+        .getElementById("medicineSearch")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            searchMedicine();
+          }
+        });
+
+      // Smooth scrolling untuk navigasi
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
